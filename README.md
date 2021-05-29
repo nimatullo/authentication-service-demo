@@ -2,7 +2,7 @@
 
 ## Creating keys.js
 
-The keys.js file contains the sensitive Google client ID and client secret. You can generate your own from the [Google Developer Console.](https://console.cloud.google.com/)
+The `keys.js` file contains the sensitive Google client ID and client secret. You can generate your own from the [Google Developer Console.](https://console.cloud.google.com/)
 
 Create a `keys.js` file in the `config/` folder.
 The `keys.js` file should look like this.
