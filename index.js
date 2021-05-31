@@ -1,7 +1,7 @@
 const PORT = 8000;
 
 const express = require("express");
-const googleRouter = require("./routes/puff");
+const googleAuthRouter = require("./routes/google");
 const cookieSession = require("cookie-session");
 const app = express();
 
@@ -15,14 +15,14 @@ app.use(
 
 // Passport
 const passport = require("passport");
-const router = require("./routes/jwt");
+const jwtAuthRouter = require("./routes/jwt");
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Express
 app.use(express.json());
-app.use("/", googleRouter);
-app.use("/auth", router);
+app.use("/", googleAuthRouter);
+app.use("/auth", jwtAuthRouter);
 
 const listener = app.listen(PORT, () => {
   console.log(`App is listening on port ${PORT}`);

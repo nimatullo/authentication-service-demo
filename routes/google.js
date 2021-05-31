@@ -5,8 +5,8 @@
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
-const controller = require("../controllers/puff");
-require("../config/passport");
+const controller = require("../controllers/google");
+require("../config/googleOAuth");
 
 router.post("/puff", controller.newPuff);
 router.get("/puff", controller.getPuff);
