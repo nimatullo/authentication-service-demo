@@ -12,6 +12,16 @@ router.post("/puff", controller.newPuff);
 router.get("/puff", controller.getPuff);
 
 /**
+ * Protected route.
+ */
+router.get("/me", controller.checkUserLoggedIn, controller.getMe);
+
+/**
+ * Logout endpoint
+ */
+router.get("/logout", controller.logOut);
+
+/**
  * Google authentication endpoint. Used to present the Google consent page.
  */
 router.get(

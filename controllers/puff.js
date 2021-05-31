@@ -14,6 +14,22 @@ const getPuff = (req, res, next) => {
   });
 };
 
+const checkUserLoggedIn = (req, res, next) => {
+  req.user ? next() : res.sendStatus(401);
+};
+
+const getMe = (req, res, next) => {
+  res.json({
+    message: `Welcome ${req.user.displayName}`,
+  });
+};
+
+const logOut = (req, res, next) => {
+  req.session = null;
+  req.logout();
+  res.redirect("/");
+};
+
 /**
  * Business logic for the /auth/google/redirect endpoint.
  * It builds the response by setting the email and name
@@ -27,4 +43,11 @@ const handleRedirect = (req, res) => {
   });
 };
 
-module.exports = { newPuff, getPuff, handleRedirect };
+module.exports = {
+  newPuff,
+  getPuff,
+  handleRedirect,
+  checkUserLoggedIn,
+  getMe,
+  logOut,
+};
